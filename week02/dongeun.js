@@ -1,4 +1,4 @@
-alert("Welcome to Dongeun info page")
+confirm("Welcome to Dongeun info page")
 const mainbox = document.getElementById("mainbox");
 function darkmode() {
     mainbox.style.backgroundColor = '#262626';
