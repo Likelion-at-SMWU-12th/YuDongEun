@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from demos.views import week4HW
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('deunu/', week4HW),
 ]
