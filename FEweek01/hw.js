@@ -1,6 +1,6 @@
-const loginForm = document.querySelector("#login-form");
-const loginInput = document.querySelector("#login-form input");
-const greeting = document.querySelector("#greeting");
+const loginForm = document.querySelector("#loginForm");
+const loginInput = document.querySelector("#loginForm input");
+const comment = document.querySelector("#comment");
 const notice = document.querySelector("#notice");
 
 
@@ -9,13 +9,13 @@ function noticeClick(){
 }
 
 
-function loginSubmit(event){
+function loginComment(event){
     event.preventDefault();
     loginForm.classList.add("hidden");
     const userName = loginInput.value;
-    greeting.innerText = 'Hello ' + userName + '! Nice to meet you :)';
-    greeting.classList.remove("hidden");
+    comment.innerText = 'Hello ' + userName + '! Nice to meet you :)';
+    comment.classList.remove("hidden");
 }
 
-loginForm.addEventListener("submit", loginSubmit);
+loginForm.addEventListener("submit", loginComment);
 notice.addEventListener("click", noticeClick);
