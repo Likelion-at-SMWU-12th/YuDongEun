@@ -32,5 +32,11 @@ function getClock() {
     clock.innerHTML = `지금은 ${year}년 ${month}월 ${datee}일 ${day}요일   ${hours}:${minutes}:${seconds} 입니다 🤸🏻‍♀️`;
 }
 
+
+function clockClick(){
+    clock.style.color = "orange";
+}
+
 getClock();
 setInterval(getClock, 1000);
+clock.addEventListener("click", clockClick);
