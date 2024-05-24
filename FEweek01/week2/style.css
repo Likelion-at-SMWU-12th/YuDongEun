@@ -2,10 +2,11 @@
 
 * {
     font-family: "Noto Sans KR", sans-serif;
+    color: #3c3c3c;
 }
 
 body{
-    background-color: #febb40;
+    background-color: white;
 }
 
 #clock {
@@ -17,6 +18,7 @@ body{
     border: 1px solid #f6f193;
     box-shadow: 0 1px 20px 0 rgba(0,0,0,0.1);
     background-color: #f6f193;
+    color: #c8ad3f;
 }
 
 .section {
@@ -41,6 +43,24 @@ body{
     background-color: #f6f193;
 }
 
+.title {
+    color: rgb(160, 130, 74);
+}
+
+input {
+    border: 1px solid #ccc;
+    padding: 10px 30px;
+    border-radius: 20px;
+    background-color: white;
+}
+
+button  {
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: white;
+}
+
 .lg-text {
     font-size: 1rem;
     font-weight: bold;
@@ -50,6 +70,7 @@ body{
 #dynamic{
     position: relative;
     display: inline-block;
+    color: #c8ad3f;
 }
 
 #dynamic::after{
@@ -64,3 +85,4 @@ body{
 #dynamic.active::after{
     display: none;
 }
+
