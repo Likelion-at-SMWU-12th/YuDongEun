@@ -6,12 +6,12 @@ function paintToDo(newTodo){
     const li = document.createElement("li");
     const span = document.createElement("span");
     li.appendChild(span);
-    span.innerText = newTodo;
+    span.innerText = "    " + newTodo;
     const button = document.createElement("button");
-    button.innerText="🤸🏻‍♀️";
+    button.innerText=" 👍🏻 ";
     button.addEventListener("click", deleteToDo);
-    li.appendChild(span);
     li.appendChild(button);
+    li.appendChild(span);
     toDoList.appendChild(li);
 }
 
