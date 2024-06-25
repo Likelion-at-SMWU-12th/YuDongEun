@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="main">
+        <h2 id="clock"></h2>
+    
+        <div class="section">
+            <h3 class="title">Add To-do List</h3>
+            <form id = 'todo-form'>
+                <input maxlength="20" type="text" placeholder="What do you want to do 💭" required>
+                <button>add</button>
+            </form>
+        </div>
+
+        <div class="section">
+            <h3 class="title">My To-do List</h3>
+            <ul id="todo-list"></ul>
+        </div>
+        
+        <div id="text">
+            <p id="dynamic" class="lg-text"></p>
+        </div>
+
+        <script src="clock.js"></script>
+        <script src="todo.js"></script>
+        <script src="typing.js"></script>
+    </div>
+</body>
+</html>
