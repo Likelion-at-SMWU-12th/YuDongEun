@@ -2,16 +2,19 @@ import "./App.css";
 import Hello from "./Hello";
 import Counter from "./Counter";
 import Info from "./Info";
-import MovieList from "./MovieList";
+import MemberList from "./MemberList";
 
 function App() {
   return (
     <>
-      <Info />
-      <br />
-      <Hello name="유동은" color="green" />
+      <Hello name="단짱" color="#3a8a05" />
       <Counter />
-      <MovieList />
+      <MemberList />
+      <br />
+      <br />
+      <br />
+
+      <Info />
     </>
   );
 }

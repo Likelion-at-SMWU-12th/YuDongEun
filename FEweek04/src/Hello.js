@@ -1,7 +1,11 @@
 import React from "react";
 
 const Hello = ({ color, name }) => {
-  return <div style={{ color }}>안녕하세요. 제 이름은 {name}입니다.</div>;
+  return (
+    <div style={{ color }}>
+      <h1>[ 2024 {name} 지원하기 🎬]</h1>
+    </div>
+  );
 };
 
 export default Hello;
