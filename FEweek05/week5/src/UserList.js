@@ -1,6 +1,6 @@
 import React from "react";
 
-const User = ({ user, onRemove, onToggle }) => {
+const User = React.memo(({ user, onRemove, onToggle }) => {
   return (
     <div>
       <b
@@ -13,9 +13,10 @@ const User = ({ user, onRemove, onToggle }) => {
       <button onClick={() => onRemove(user.id)}>삭제</button>
     </div>
   );
-};
+});
 
 const UserList = ({ users, onRemove, onToggle }) => {
+  console.log("UserList component redered");
   return (
     <div>
       {users.map((user) => (
@@ -30,4 +31,4 @@ const UserList = ({ users, onRemove, onToggle }) => {
   );
 };
 
-export default UserList;
+export default React.memo(UserList);

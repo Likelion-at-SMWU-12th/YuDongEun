@@ -50,7 +50,7 @@ function App() {
         username,
         email,
       };
-      setUsers(users.concat(user));
+      setUsers((users) => users.concat(user)); //함수형 업데이트
 
       setInputs({
         username: "",
@@ -58,26 +58,24 @@ function App() {
       });
       nextId.current += 1;
     },
-    [username, email, users] //여기에 뭐가 들어가야 할까?
+    [username, email] //여기에 뭐가 들어가야 할까?
   );
 
-  const onRemove = useCallback(
-    (id) => {
-      setUsers(users.filter((user) => user.id !== id));
-    },
-    [users]
-  );
+  const onRemove = useCallback((id) => {
+    // user.id가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열을 만듦
+    //즉, user.id가 id인 것을 제거함
+    setUsers(users.filter((user) => user.id !== id));
+  }, []);
 
-  const onToggle = useCallback(
-    (id) => {
-      setUsers(
-        users.map((user) =>
-          user.id === id ? { ...user, active: !user.active } : user
-        )
-      );
-    },
-    [users]
-  );
+  const onToggle = useCallback((id) => {
+    //id 값을 비교해서 id가 다르면 그대로 두고, 같으면 active 값을 바꾼다
+    setUsers(
+      //함수형 업데이트
+      users.map((user) =>
+        user.id === id ? { ...user, active: !user.active } : user
+      )
+    );
+  }, []);
 
   return (
     <>
