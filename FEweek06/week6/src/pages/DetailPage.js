@@ -24,7 +24,21 @@ const DetailPage = () => {
   useEffect(() => {
     getDetail();
     // eslint-disable-next-line
-  }, []);
+  }, [getDetail]);
+
+  //onRemove 함수 -> 삭제
+  const onRemove = (id) => {
+    axios
+      .delete(`http://127.0.0.1:8000/entries/${id}/`)
+      .then((response) => {
+        console.log(response);
+        alert("삭제되었습니다.");
+        navigate("/"); // 삭제 후 index.js 페이지가 보이도록 함.
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <Wrapper>
@@ -35,8 +49,16 @@ const DetailPage = () => {
           <Time>{detail.timestamp}</Time>
           <Comment>{detail.comment}</Comment>
           <BtnLine>
-            <Button txt={"수정"} fontSize={"30px"} />
-            <Button txt={"삭제"} fontSize={"30px"} />
+            <Button
+              txt={"수정"}
+              fontSize={"30px"}
+              onBtnClick={() => navigate(`/edit/${id}`)}
+            />
+            <Button
+              txt={"삭제"}
+              fontSize={"30px"}
+              onBtnClick={() => onRemove(id)}
+            />
           </BtnLine>
         </DetailDiv>
       </DetailWrapper>
