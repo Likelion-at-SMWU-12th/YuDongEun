@@ -2,10 +2,10 @@ import React from "react";
 import { styled } from "styled-components";
 import MemberList from "./MemberList";
 
-const Right = ({ part }) => {
+const Right = () => {
   return (
     <Wrapper>
-      <MemberList part={part} />
+      <MemberList />
     </Wrapper>
   );
 };
