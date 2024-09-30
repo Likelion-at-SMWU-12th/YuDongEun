@@ -47,7 +47,68 @@ export const usedeletePost = () => {
     mutationFn: ({ postId }) => deletePost(postId),
     onSuccess: () => {
       alert("게시글이 삭제되었습니다.");
-      queryClient.invalidateQueries("poostList");
+      queryClient.invalidateQueries("postList");
+    },
+  });
+};
+
+/* 과제 queries/index.js*/
+// 1. 회원가입(sign-up)
+import { useMutation } from "react-query";
+import { signUp } from "../axios/index";
+
+export const useSignUp = () => {
+  return useMutation({
+    mutationFn: ({ username, password }) => signUp(username, password),
+    enabled: !!username, //postId가 있을 때만 실행
+    enabled: !!password,
+    onSuccess: () => {
+      alert("환영합니다 🤗");
+    },
+  });
+};
+
+//2. 개인정보 수정 (update profile)
+import { useMutation } from "react-query";
+import { updateProfile } from "../axios/index";
+
+export const useUpdateProfile = () => {
+  const queryClient = userQuertClient();
+
+  return useMutation({
+    mutationFn: ({ userId, updatedUserInfo }) =>
+      updateProfile(userId, updatedUserInfo),
+    onSuccess: () => {
+      queryClient.invalidateQueries("myPage");
+    },
+  });
+};
+
+//3. 마이페이지 조회 (my page fetch)
+import { useQuery } from "react-query";
+import { fetchMyPage } from "../axios/index";
+
+export const useFetchMyPage = () => {
+  return useQuery({
+    queryKey: ["user", userId],
+    queryFn: () => fetchMyPage(userId),
+    // enabled: !!userId, //userId가 있을 때만 실행
+    staleTime: 30 * 1000, // 데이터가 10초 동안 신선한 상태로 간주
+    cacheTime: 5 * 60 * 1000, // 캐시가 1분 동안 유지된 후 메모리에서 제거
+  });
+};
+
+//4. 회원 정보 삭제 (delete user)
+import { useMutation } from "react-query";
+import { deleteUser } from "../axios/index";
+
+export const useDeleteUser = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ postId }) => deleteUser(postId),
+    onSuccess: () => {
+      alert("회원 정보가 삭제되었습니다.");
+      queryClient.invalidateQueries("userInfo");
     },
   });
 };
