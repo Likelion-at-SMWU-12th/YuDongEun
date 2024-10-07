@@ -1,0 +1,89 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  background-color: rgb(246, 236, 255);
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  height: 100vh;
+}
+
+h2 {
+  font-size: 20px;
+  margin-top: 125px;
+  text-align: center;
+  font-weight: 900 !important;
+}
+
+img {
+  width: 20%;
+  display: block;
+  margin-top: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+
+h1 {
+  font-size: 25px;
+  margin-top: 5px;
+  text-align: center;
+  font-weight: 800 !important;
+  margin-bottom: 50px;
+}
+
+.btns-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-left: 110px;
+  padding-top: 30px;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  width: 17rem;
+  height: 3rem;
+  font-size: 11pt;
+  font-weight: 800;
+  border-radius: 15pt;
+}
+
+.kakaoBtn {
+  background-color: #fae100;
+  color: #371d1e;
+}
+
+.googleBtn {
+  background-color: white;
+  color: black;
+}
+
+button > img {
+  width: 100%;
+}
+
+.profile-image-div {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.profile-name {
+  padding-top: 300px;
+  font-size: 30pt;
+}
+
+.redirection {
+  padding-top: 300px;
+
+  font-size: 15pt;
+  font-weight: 700;
+}
