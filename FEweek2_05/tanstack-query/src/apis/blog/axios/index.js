@@ -1,65 +1,51 @@
 // axios/index.js
-import axios from 'axios';
+import axios from "axios";
 
+//작성 기능
 export const createPost = async (newPost) => {
-    const {data} = await axios.post(`/api/posts`, newPost);
-    return data;
+  const { data } = await axios.post(`/api/posts`, newPost);
+  return data;
 };
 
+//수정 기능
 export const updatePost = async (postId, updatedPost) => {
-    const {data} = await axios.post(`/api/posts/${postId}`, updatedPost);
-    return data;
+  const { data } = await axios.post(`/api/posts/${postId}`, updatedPost);
+  return data;
 };
 
+//조회 기능
 export const getPost = async (postId) => {
-    const {data} = await axios.get(`/api/posts/${postId}`);
-    return data;
-}
+  const { data } = await axios.get(`/api/posts/${postId}`);
+  return data;
+};
 
+//삭제 기능
 export const deletePost = async (postId) => {
-    const {data} = await axios.delete(`/api/posts/${postId}`);
-    return data,
-}
+  const { data } = await axios.delete(`/api/posts/${postId}`);
+  return data;
+};
 
-//queries/index.js
-import {useMutation} from "react-query";
-import {createPost} from "../axios/index";
+/* 과제 axios.index.js*/
+//1. 회원 가입(sign-up)
+export const signUp = async (newUser) => {
+  const { data } = await axios.post(`/api/users`, newUser);
+  return data;
+};
 
-export const useCreatePost = () => {
-    return useMutation({
-        mutationFn: ({title, content}) => createPost(title, content), 
-    });
-}
+//2. 개인정보 수정 (update profile)
+export const updateProfile = async (userId, updatedUserInfo) => {
+  const { data } = await axios.put(`/api/users/${userId}`, updatedUserInfo);
+  return data;
+};
 
+//3. 마이페이지 조회 (my page fetch)
+export const fetchMyPage = async (userId) => {
+  const { data } = await axios.get(`/api/users/${userId}`);
+  return data;
+};
 
-import {updatePost} from "../axios/index";
-
-export const useUpdatePost = () => {
-    return useMutation({
-        mutationFn: ({postId, title, content}) => updatePost(postId, title, content),
-        enabled: !!postId,
-    })
-}
-
-
-import {getPost} from "../axios/index";
-
-export const usegetPost = () => {
-    return useQuery({
-        queryFn: ({postId}) => getPost(postId),
-        enabled: !!postId,
-        staleTime: 10 * 1000,
-        cacheTime: 1 * 60 * 1000,
-    })
-}
-
-import {deletePost} from "../axios/index";
-
-export const usedeletePost = () => {
-    return useMutation({
-        queryFn: ({postId}) => deletePost(postId),
-        onSuccess: (data, variables, context) => { 
-            alert()
-        }
-        
-}
+//4. 회원 정보 삭제 (delete user)
+export const deleteUser = async (userId) => {
+  const { data } = await axios.delete(`api/users/${userId}`);
+  return data;
+};
